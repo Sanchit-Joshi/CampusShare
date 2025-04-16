@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Search, BookOpen, PlusCircle, User, MessageSquare } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Navigation = () => {
   const isMobile = useIsMobile();
@@ -51,6 +52,8 @@ const Navigation = () => {
               {isMobile && <span className="sr-only">Messages</span>}
             </Link>
           </Button>
+          
+          <ThemeToggle />
           
           <Button variant="default" size={isMobile ? "icon" : "default"} asChild>
             <Link to="/create-listing">
