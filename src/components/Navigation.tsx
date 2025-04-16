@@ -14,7 +14,7 @@ const Navigation = () => {
         <div className="mr-4 flex">
           <Link to="/" className="flex items-center space-x-2">
             <BookOpen className="h-6 w-6 text-brand-500" />
-            <span className="font-bold text-xl hidden md:inline-block">TextTradeHub</span>
+            <span className="font-bold text-xl hidden md:inline-block">CampusShare</span>
           </Link>
         </div>
 

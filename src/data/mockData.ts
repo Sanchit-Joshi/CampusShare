@@ -12,6 +12,9 @@ export interface BookListing {
   status: "available" | "sold";
   createdAt: string;
   updatedAt: string;
+  rating: number;
+  edition?: string;
+  publisher?: string;
 }
 
 export interface User {
@@ -59,7 +62,10 @@ export const mockListings: BookListing[] = [
     imageUrl: "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=768&q=80",
     status: "available",
     createdAt: "2023-08-10T08:00:00Z",
-    updatedAt: "2023-08-10T08:00:00Z"
+    updatedAt: "2023-08-10T08:00:00Z",
+    rating: 4.5,
+    edition: "3rd Edition",
+    publisher: "Pearson Education"
   },
   {
     id: "book2",
@@ -73,7 +79,10 @@ export const mockListings: BookListing[] = [
     imageUrl: "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=768&q=80",
     status: "available",
     createdAt: "2023-08-12T10:30:00Z",
-    updatedAt: "2023-08-12T10:30:00Z"
+    updatedAt: "2023-08-12T10:30:00Z",
+    rating: 5.0,
+    edition: "9th Edition",
+    publisher: "Cengage Learning"
   },
   {
     id: "book3",
@@ -87,7 +96,10 @@ export const mockListings: BookListing[] = [
     imageUrl: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=768&q=80",
     status: "available",
     createdAt: "2023-08-15T14:15:00Z",
-    updatedAt: "2023-08-15T14:15:00Z"
+    updatedAt: "2023-08-15T14:15:00Z",
+    rating: 3.5,
+    edition: "8th Edition",
+    publisher: "Prentice Hall"
   },
   {
     id: "book4",
@@ -101,7 +113,10 @@ export const mockListings: BookListing[] = [
     imageUrl: "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=768&q=80",
     status: "available",
     createdAt: "2023-08-18T09:45:00Z",
-    updatedAt: "2023-08-18T09:45:00Z"
+    updatedAt: "2023-08-18T09:45:00Z",
+    rating: 4.0,
+    edition: "7th Edition",
+    publisher: "Brooks/Cole"
   },
   {
     id: "book5",
@@ -115,7 +130,10 @@ export const mockListings: BookListing[] = [
     imageUrl: "https://images.unsplash.com/photo-1576872381149-7847515ce5d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=768&q=80",
     status: "available",
     createdAt: "2023-08-20T16:30:00Z",
-    updatedAt: "2023-08-20T16:30:00Z"
+    updatedAt: "2023-08-20T16:30:00Z",
+    rating: 4.8,
+    edition: "12th Edition",
+    publisher: "Worth Publishers"
   },
   {
     id: "book6",
@@ -129,7 +147,10 @@ export const mockListings: BookListing[] = [
     imageUrl: "https://images.unsplash.com/photo-1497644083578-611b798c60f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=768&q=80",
     status: "sold",
     createdAt: "2023-08-22T11:20:00Z",
-    updatedAt: "2023-08-25T13:45:00Z"
+    updatedAt: "2023-08-25T13:45:00Z",
+    rating: 3.7,
+    edition: "5th Edition",
+    publisher: "Cengage Learning"
   }
 ];
 

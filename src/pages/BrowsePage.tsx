@@ -1,14 +1,11 @@
-
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import BookCard from "@/components/BookCard";
 import SearchFilters, { FilterState } from "@/components/SearchFilters";
 import { filterListings, BookListing } from "@/data/mockData";
-import { Grid, List, SlidersHorizontal, BookOpen, ArrowRight, RefreshCw, DollarSign, Users } from "lucide-react";
-import { useScrollAnimation } from "@/lib/useScrollAnimation";
-import { Link } from "react-router-dom";
+import { Grid, List, SlidersHorizontal, BookOpen } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const HomePage = () => {
+const BrowsePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilters, setActiveFilters] = useState<FilterState>({
     priceRange: [0, 200],
@@ -41,89 +38,15 @@ const HomePage = () => {
 
   return (
     <div className="container py-8">
-      {/* Hero Section with CTA */}
-      <div className="mb-12 text-center">
-        <h1 className="text-5xl font-bold mb-4">CampusShare</h1>
-        <p className="text-muted-foreground max-w-3xl mx-auto text-xl mb-8">
-          Exchange knowledge, save money - Your campus textbook community marketplace.
+      {/* Page Header */}
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold mb-2">Browse Textbooks</h1>
+        <p className="text-muted-foreground">
+          Find and compare textbooks from students across your campus.
         </p>
-        <div className="flex justify-center gap-4">
-          <Button size="lg" className="px-8" asChild>
-            <Link to="/create-listing">
-              Sell Your Textbooks
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button size="lg" variant="outline" className="px-8" asChild>
-            <Link to="/browse">
-              Browse Books
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
       </div>
       
-      {/* How It Works Section */}
-      <div className="mb-16 bg-muted/30 py-10 px-6 rounded-xl" ref={useScrollAnimation({ animation: 'fade-up' })}>
-        <h2 className="text-3xl font-bold text-center mb-8">How It Works</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <BookOpen className="h-8 w-8 text-primary" />
-            </div>
-            <h3 className="font-semibold text-xl mb-2">List Your Books</h3>
-            <p className="text-muted-foreground">Upload your textbooks with details like condition, price, and course code.</p>
-          </div>
-          <div className="text-center">
-            <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Users className="h-8 w-8 text-primary" />
-            </div>
-            <h3 className="font-semibold text-xl mb-2">Connect with Students</h3>
-            <p className="text-muted-foreground">Chat with interested buyers or sellers from your campus.</p>
-          </div>
-          <div className="text-center">
-            <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <RefreshCw className="h-8 w-8 text-primary" />
-            </div>
-            <h3 className="font-semibold text-xl mb-2">Exchange & Save</h3>
-            <p className="text-muted-foreground">Meet up on campus to exchange books and save money.</p>
-          </div>
-        </div>
-      </div>
-      
-      {/* Benefits Section */}
-      <div className="mb-16" ref={useScrollAnimation({ animation: 'fade-up', threshold: 0.2 })}>
-        <h2 className="text-3xl font-bold text-center mb-8">Why Use CampusShare Hub?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="border rounded-lg p-6 hover:shadow-md transition-shadow">
-            <DollarSign className="h-10 w-10 text-green-500 mb-4" />
-            <h3 className="font-semibold text-xl mb-2">Save Up to 70% on Textbooks</h3>
-            <p className="text-muted-foreground">Buy used textbooks directly from other students at a fraction of bookstore prices.</p>
-          </div>
-          <div className="border rounded-lg p-6 hover:shadow-md transition-shadow">
-            <Users className="h-10 w-10 text-blue-500 mb-4" />
-            <h3 className="font-semibold text-xl mb-2">Campus Community</h3>
-            <p className="text-muted-foreground">Connect with students who've taken your courses for advice and study tips.</p>
-          </div>
-          <div className="border rounded-lg p-6 hover:shadow-md transition-shadow">
-            <RefreshCw className="h-10 w-10 text-purple-500 mb-4" />
-            <h3 className="font-semibold text-xl mb-2">Sustainable Education</h3>
-            <p className="text-muted-foreground">Reduce waste by giving textbooks a second (or third) life in our circular economy.</p>
-          </div>
-          <div className="border rounded-lg p-6 hover:shadow-md transition-shadow">
-            <BookOpen className="h-10 w-10 text-orange-500 mb-4" />
-            <h3 className="font-semibold text-xl mb-2">Course-Specific Books</h3>
-            <p className="text-muted-foreground">Find exactly what you need with our course code filtering system.</p>
-          </div>
-        </div>
-      </div>
-      
-      {/* Search Section Title */}
-      <div className="mb-6">
-        <h2 className="text-2xl font-bold">Find Your Textbooks</h2>
-        <p className="text-muted-foreground">Search our marketplace for the books you need this semester.</p>
-      </div>
-      
+      {/* Search and Filters */}
       <div className="mb-6">
         <div className="relative mb-4">
           <input
@@ -162,6 +85,7 @@ const HomePage = () => {
         </div>
       </div>
 
+      {/* Results Display */}
       {books.length === 0 ? (
         <div className="text-center py-12">
           <SlidersHorizontal className="h-12 w-12 mx-auto text-muted-foreground" />
@@ -196,7 +120,7 @@ const HomePage = () => {
               <div className="flex-1">
                 <h3 className="font-semibold">{book.title}</h3>
                 <p className="text-sm text-muted-foreground">{book.author}</p>
-+                 {/* Consider adding description and rating to list view as well if desired */}
+                <p className="text-sm text-muted-foreground mt-1">{book.description}</p>
                 <div className="flex items-center mt-2 justify-between">
                   <span className="text-sm font-medium">${book.price.toFixed(2)}</span>
                   <div className="flex items-center space-x-2">
@@ -225,4 +149,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default BrowsePage;

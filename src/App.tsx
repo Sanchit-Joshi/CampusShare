@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import ListingDetailPage from "./pages/ListingDetailPage";
 import CreateListingPage from "./pages/CreateListingPage";
 import MyListingsPage from "./pages/MyListingsPage";
+import BrowsePage from "./pages/BrowsePage";
 import NotFound from "./pages/NotFound";
 import Navigation from "./components/Navigation";
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -26,6 +27,7 @@ const App = () => (
             <div className="flex-1">
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/browse" element={<BrowsePage />} />
                 <Route path="/listings/:id" element={<ListingDetailPage />} />
                 <Route path="/create-listing" element={<CreateListingPage />} />
                 <Route path="/my-listings" element={<MyListingsPage />} />
