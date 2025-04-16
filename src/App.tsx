@@ -1,9 +1,10 @@
 
 import { Toaster } from "@/components/ui/toaster";
+
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ListingDetailPage from "./pages/ListingDetailPage";
 import CreateListingPage from "./pages/CreateListingPage";
@@ -26,6 +27,7 @@ const App = () => (
             <Navigation />
             <div className="flex-1">
               <Routes>
+                <Route path="/CampusShare" element={<Navigate to="/" replace />} />
                 <Route path="/" element={<HomePage />} />
                 <Route path="/browse" element={<BrowsePage />} />
                 <Route path="/listings/:id" element={<ListingDetailPage />} />
